@@ -2,7 +2,7 @@
 
 import os
 
-DEBUG = False
+DEBUG = True
 
 PLUGINS = [
     'slackbot.plugins',
@@ -15,7 +15,7 @@ Setup timeout for slacker API requests (e.g. uploading a file).
 '''
 TIMEOUT = 100
 
-# API_TOKEN = '###token###'
+API_TOKEN = 'token'
 
 '''
 Setup a comma delimited list of aliases that the bot will respond to.
