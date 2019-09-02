@@ -6,14 +6,20 @@ from slackbot.bot import default_reply
 import requests
 
 def bbva(i):
-    b = requests.get('https://hb.bbv.com.ar/fnet/mod/inversiones/NL-dolareuro.jsp')
-    aa = b.text.replace('\t', '').replace('\n', '')
-    return re.findall('[0-9]*,[0-9]*', aa)[i]
+    try:
+        b = requests.get('https://hb.bbv.com.ar/fnet/mod/inversiones/NL-dolareuro.jsp')
+        aa = b.text.replace('\t', '').replace('\n', '')
+        return re.findall('[0-9]*,[0-9]*', aa)[i]
+    except:
+        return 'error!'
 
 def lala(i):
-    b = requests.get('https://banco.santanderrio.com.ar/exec/cotizacion/index.jsp')
-    aa = b.text.replace('\t', '').replace('\n', '')
-    return re.findall('\$ [0-9]*,[0-9]*', aa)[i]
+    try:
+        b = requests.get('https://banco.santanderrio.com.ar/exec/cotizacion/index.jsp')
+        aa = b.text.replace('\t', '').replace('\n', '')
+        return re.findall('\$ [0-9]*,[0-9]*', aa)[i]
+    except:
+        return 'error!'
 
 @respond_to('venta', re.IGNORECASE)
 def hello_reply(message):
